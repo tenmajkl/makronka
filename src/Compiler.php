@@ -36,8 +36,10 @@ class Compiler
                     foreach ($curent as $item) {
                         $result .= $item;
                     }
-                    $curent = [];
-                    $macros = $this->macros;
+                    if (count($curent) > 1 || !$token->is($curent[0]->text)) {
+                        $curent = [];
+                        $macros = $this->macros;
+                    }
                 }
                 $result .= $token->text;
             }
