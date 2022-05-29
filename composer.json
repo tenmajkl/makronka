@@ -1,0 +1,25 @@
+{
+    "name": "tenmajkl/makronka",
+    "description": "Php macro preprocessor",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Majkel\\Makronka\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TENMAJKL",
+            "email": "tenmajkl@liskyjidlokod.fun"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^1.21"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

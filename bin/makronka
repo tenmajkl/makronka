@@ -1,0 +1,17 @@
+#!/usr/bin/php
+
+<?php
+
+use Majkel\Makronka\Compiler;
+
+if ($argc < 3) {
+    echo 'Makronka takes 2 arguments, target file and macro file';
+}
+
+include __DIR__.'/../vendor/autoload.php';
+
+$macros = require $argv[2];
+
+$compiler = new Compiler($macros);
+
+echo $compiler->compile(file_get_contents($argv[1])); // TODO
