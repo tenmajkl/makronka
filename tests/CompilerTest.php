@@ -24,8 +24,8 @@ it('compiles complex macro', function() {
     expect($compiler->compile('<?php class Klobna { public foo() {} }'))
         ->toBe('<?php class Klobna { public function foo() {} }');
 
-    expect($compiler->compile('<?php class Klobna { public foo; }'))
-        ->toBe('<?php class Klobna { public foo; }');
+    expect($compiler->compile('<?php class Klobna { public $foo; }'))
+        ->toBe('<?php class Klobna { public $foo; }');
 });
 
 

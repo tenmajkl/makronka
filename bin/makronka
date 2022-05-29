@@ -1,11 +1,11 @@
-#!/usr/bin/php
-
+#!/usr/bin/env php
 <?php
 
 use Majkel\Makronka\Compiler;
 
 if ($argc < 3) {
-    echo 'Makronka takes 2 arguments, target file and macro file';
+    echo 'Makronka takes 2 arguments, target file and macro file'.PHP_EOL;
+    return;
 }
 
 include __DIR__.'/../vendor/autoload.php';
