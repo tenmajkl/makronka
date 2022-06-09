@@ -9,7 +9,7 @@ class Foo
 
     }
 
-    public baz(string $baz): string
+    private baz(string $baz): string
     {
 
     }
