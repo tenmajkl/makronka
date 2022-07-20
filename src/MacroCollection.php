@@ -4,6 +4,7 @@ declare(strict_types = 1);
 
 namespace Majkel\Makronka;
 
+use Closure;
 use PhpToken;
 
 class MacroCollection
@@ -30,7 +31,7 @@ class MacroCollection
         ) : null;
     }
 
-    public function macro(array $tokens, string $compiled): static
+    public function macro(array $tokens, Closure|string $compiled): static
     {
         $this->macros[] = new Macro(array_reverse($tokens), $compiled);
         return $this;

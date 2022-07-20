@@ -4,13 +4,14 @@ declare(strict_types = 1);
 
 namespace Majkel\Makronka;
 
+use Closure;
 use PhpToken;
 
 class Macro
 {
     public function __construct(
         private array $tokens,
-        private string $compiled,
+        private Closure|string $compiled,
     )
     {
     }
@@ -27,7 +28,13 @@ class Macro
 
     public function compile(array $tokens): string
     {
-        $result = $this->compiled;
+        $result = $this->compiled instanceof Closure ? $this->compiled->call($this, $tokens) : $this->interpolate($this->compiled, $tokens);
+        return $result;
+    }
+
+    public function interpolate(string $compiled, array $tokens): string
+    {
+        $result = $compiled;
         foreach ($tokens as $key => $value) {
             $result = str_replace('$_'.$key, $value->text, $result);
         }
